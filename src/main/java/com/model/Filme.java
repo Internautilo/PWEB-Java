@@ -15,10 +15,9 @@ public class Filme {
         this.nota = nota;
     }
 
-    public Filme(String titulo, String diretor, String genero, float nota) {
+    public Filme(String titulo, String diretor, String genero) {
         this.titulo = titulo;
         this.diretor = diretor;
         this.genero = genero;
-        this.nota = nota;
     }
 }
