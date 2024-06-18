@@ -1,9 +1,38 @@
 create database PWEB_Java;
 use PWEB_Java;
+
 create table users (
 	idUsuario int not null auto_increment,
 	nome varchar(100) not null,
 	email varchar(80) not null,
 	senha varchar(50) not null,
+	removido int default 0,
 	primary key (idUsuario)
+);
+
+create table filmes (
+	idFilme int not null auto_increment,
+	titulo varchar(255) not null,
+	diretor varchar(80) not null,
+	genero varchar(80) not null,
+	nota double(2,2),
+	removido int default 0,
+	primary key (idFilme)
+);
+
+CREATE TABLE admin (
+    idAdmin INT NOT NULL AUTO_INCREMENT,
+    idUsuario INT,
+    PRIMARY KEY (idAdmin),
+    FOREIGN KEY (idUsuario) REFERENCES users(idUsuario)
+);
+
+CREATE TABLE notas (
+    idNota INT NOT NULL AUTO_INCREMENT,
+    idFilme INT,
+    idUsuario INT,
+    nota DOUBLE(2,2) NOT NULL,
+    PRIMARY KEY (idNota),
+    FOREIGN KEY (idFilme) REFERENCES filmes(idFilme),
+    FOREIGN KEY (idUsuario) REFERENCES users(idUsuario)
 );
