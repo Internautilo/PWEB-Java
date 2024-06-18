@@ -69,9 +69,28 @@ public class DBQuery {
 
     public int update_query(String table, String campos, String extra) {
         String query = "UPDATE " + table + " SET " + campos + " " + extra;
+        System.out.println(query);
         try {
             return this.stmt.executeUpdate(query);
         } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int delete_query(String table, int id) {
+        String query = "UPDATE " + table + " SET removido = 1 WHERE idUsuario = " + id;
+        System.out.println(query);
+        try {
+            return this.stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void query(String query) {
+        try {
+            this.stmt.execute(query);
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -94,7 +113,7 @@ public class DBQuery {
         return camposSelecionados;
     }
 
-    public List<Map<String, Object>> result_to_list(ResultSet rs) {
+    public static List<Map<String, Object>> result_to_list(ResultSet rs) {
         List<Map<String, Object>> results = new ArrayList<>();
         try {
             while (rs.next()) {
