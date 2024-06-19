@@ -71,8 +71,8 @@ public class DBQuery {
         }
     }
 
-    public static int delete_query(String table, int id) {
-        String query = "UPDATE " + table + " SET removido = 1 WHERE idUsuario = " + id;
+    public static int delete_query(String table, String key, int id) {
+        String query = "UPDATE " + table + " SET removido = 1 WHERE " + key + " = " + id;
         System.out.println(query);
         try {
             Connection conn = DBConnection.getConnection();

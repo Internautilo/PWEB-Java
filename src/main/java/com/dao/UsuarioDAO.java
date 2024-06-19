@@ -4,10 +4,6 @@ import com.database.DBQuery;
 import com.model.Usuario;
 import com.service.Hash;
 
-import javax.xml.transform.Result;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -77,6 +73,6 @@ public class UsuarioDAO {
     }
 
     public static int delete_user(int id) {
-        return DBQuery.delete_query("users", id);
+        return DBQuery.delete_query("users", "idUsuario" , id);
     }
 }
