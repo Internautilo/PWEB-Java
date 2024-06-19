@@ -1,8 +1,6 @@
 package com.database;
 
-import javax.xml.transform.Result;
 import java.sql.*;
-import java.util.*;
 
 public class DBConnection {
     private String driver = "com.mysql.cj.jdbc.Driver";
