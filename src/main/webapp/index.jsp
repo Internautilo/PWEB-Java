@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<% if (session.getAttribute("user") == null) {
-    response.sendRedirect("login.jsp");
-} %>
+<%--<% if (session.getAttribute("user") == null) {--%>
+<%--    response.sendRedirect("login.jsp");--%>
+<%--} %>--%>
 
 <!DOCTYPE html>
 <html data-bs-theme="dark">
@@ -15,6 +15,9 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+    <form enctype="multipart/form-data" method="post" action="filme/insert">
+        <input type="file" name="imagem">
+        <input type="submit" value="Salvar">
+    </form>
 </body>
 </html>
