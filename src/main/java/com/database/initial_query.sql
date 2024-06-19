@@ -5,7 +5,7 @@ create table users (
 	idUsuario int not null auto_increment,
 	nome varchar(100) not null,
 	email varchar(80) not null,
-	senha varchar(50) not null,
+	senha varchar(255) not null,
 	removido int default 0,
 	primary key (idUsuario)
 );
@@ -13,11 +13,13 @@ create table users (
 create table filmes (
 	idFilme int not null auto_increment,
 	titulo varchar(255) not null,
+    descricao text,
 	diretor varchar(80) not null,
 	genero varchar(80) not null,
-	nota double(2,2),
+    imagem varchar(255),
+	nota double(2,1) not null default 0,
 	removido int default 0,
-	primary key (idFilme)
+	PRIMARY KEY (idFilme)
 );
 
 CREATE TABLE admin (
@@ -31,11 +33,15 @@ CREATE TABLE notas (
     idNota INT NOT NULL AUTO_INCREMENT,
     idFilme INT,
     idUsuario INT,
-    nota DOUBLE(2,2) NOT NULL,
+    nota DOUBLE(2,1) NOT NULL,
     PRIMARY KEY (idNota),
     FOREIGN KEY (idFilme) REFERENCES filmes(idFilme),
     FOREIGN KEY (idUsuario) REFERENCES users(idUsuario)
 );
+
+# ADICIONA UM USUARIO ADMIN PADRÃO
+INSERT INTO users (nome, email, senha) VALUES ('administrador', 'adm@email.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3');
+INSERT INTO admin (idUsuario) VALUES (1);
 
 DELIMITER //
 
@@ -82,3 +88,14 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+
+-- PARA EXCLUIR AS TABELAS APENAS
+# drop table admin;
+#
+# drop table notas;
+#
+# drop table filmes;
+#
+# drop table users;
