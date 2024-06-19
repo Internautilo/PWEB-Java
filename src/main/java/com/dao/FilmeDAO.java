@@ -2,58 +2,70 @@ package com.dao;
 
 import com.database.DBQuery;
 import com.model.Filme;
-import com.model.Usuario;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class FilmeDAO implements DAOInterface{
+public class FilmeDAO {
     private DBQuery dbQuery;
 
     public FilmeDAO() {
         this.dbQuery = new DBQuery();
     }
 
-    @Override
-    public int inserir(Object object) throws Exception {
-        if (!(object instanceof Filme)) {
-            throw new Exception("Objeto nao e uma instancia de Usuario: ");
-        }
-        Filme filme = (Filme) object;
+    public static int insert_filme(Filme filme) {
         String[] valores = {filme.titulo, filme.diretor, filme.genero};
-        return this.dbQuery.insert_query("filmes", "titulo, diretor, genero", valores);
+        return DBQuery.insert_query("filmes", "titulo, diretor, genero", valores);
     }
 
-    @Override
-    public ResultSet listar_por_id(int[] ids) {
-        StringBuilder idList = new StringBuilder();
-        for (int i = 0; i < ids.length; i++) {
-            idList.append(ids[i]);
-            if (i < ids.length - 1) {
-                idList.append(",");
-            }
+    public static Filme get_filme_by_id(int id) throws SQLException {
+        String extraQuery = "WHERE idFilme = " + id + " AND removido != 1 LIMIT 1";
+        ResultSet rs =  DBQuery.select_query("filmes", extraQuery);
+        Filme filme = null;
+        if (rs.next()){
+            filme = new Filme(rs.getInt("idFilme"),
+                    rs.getString("titulo"),
+                    rs.getString("descricao"),
+                    rs.getString("diretor"),
+                    rs.getString("genero"),
+                    rs.getString("imagem"),
+                    rs.getDouble("nota")
+            );
         }
-        String extraQuery = "WHERE idFilme IN (" + idList.toString() + ") AND removido != 1";
-        return this.dbQuery.select_query("filmes", extraQuery);
+        return filme;
     }
 
-    @Override
-    public ResultSet listar() {
-        return this.dbQuery.select_query("filmes", "WHERE removido != 1 ORDER BY idFilme");
-    }
-
-    @Override
-    public int alterar(int id, Object object) throws Exception {
-        if (!(object instanceof Filme)) {
-            throw new Exception("Objeto nao e uma instancia de usuario");
+    public static List<Filme> listar() throws SQLException {
+        ResultSet rs = DBQuery.select_query("filmes", "WHERE removido != 1 ORDER BY idFilme");
+        List<Filme> filmes = new ArrayList<>();
+        while (rs.next()) {
+            filmes.add(new Filme(rs.getInt("idFilme"),
+                    rs.getString("titulo"),
+                    rs.getString("descricao"),
+                    rs.getString("diretor"),
+                    rs.getString("genero"),
+                    rs.getString("imagem"),
+                    rs.getDouble("nota")
+                )
+            );
         }
-        Filme filme = (Filme) object;
-        String campos = "titulo = '" + filme.titulo + "', diretor =  '" + filme.diretor + "', genero =  '" + filme.genero + "'";
+        return filmes;
+    }
+
+    public static int update_filme(int id, Filme filme) {
+        String campos = "titulo = '" + filme.titulo + "' " +
+                        "descricao = '" + filme.descricao + "' " +
+                        "diretor = '" + filme.diretor + "' " +
+                        "genero = '" + filme.genero + "' " +
+                        "imagem = '" + filme.imagem + "' " +
+                        "nota = '" + filme.nota + "'";
         String where = "WHERE idFilme = " + id;
-        return this.dbQuery.update_query("filmes", campos, where);
+        return DBQuery.update_query("filmes", campos, where);
     }
 
-    @Override
-    public int remover(int id) {
-        return this.dbQuery.delete_query("users", id);
+    public static int delete_filme(int id) {
+        return DBQuery.delete_query("filmes", "idFilme", id);
     }
 }
