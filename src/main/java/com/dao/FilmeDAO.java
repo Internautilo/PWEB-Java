@@ -37,7 +37,7 @@ public class FilmeDAO implements DAOInterface{
     }
 
     @Override
-    public ResultSet listar_por_id() {
+    public ResultSet listar() {
         return this.dbQuery.select_query("filmes", "WHERE removido != 1 ORDER BY idFilme");
     }
 

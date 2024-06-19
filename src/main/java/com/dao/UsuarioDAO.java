@@ -39,7 +39,7 @@ public class UsuarioDAO implements DAOInterface {
     }
 
     @Override
-    public ResultSet listar_por_id() {
+    public ResultSet listar() {
         return this.dbQuery.select_query("users", "WHERE removido != 1 ORDER BY idUsuario");
     }
 
