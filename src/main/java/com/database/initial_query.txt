@@ -36,3 +36,49 @@ CREATE TABLE notas (
     FOREIGN KEY (idFilme) REFERENCES filmes(idFilme),
     FOREIGN KEY (idUsuario) REFERENCES users(idUsuario)
 );
+
+DELIMITER //
+
+CREATE TRIGGER update_film_rating
+AFTER INSERT ON notas
+FOR EACH ROW
+BEGIN
+    UPDATE filmes f
+    JOIN (
+        SELECT idFilme, AVG(nota) as avg_nota
+        FROM notas
+        GROUP BY idFilme
+    ) n ON f.idFilme = n.idFilme
+    SET f.nota = n.avg_nota
+    WHERE f.idFilme = NEW.idFilme;
+END //
+
+CREATE TRIGGER update_film_rating_after_update
+AFTER UPDATE ON notas
+FOR EACH ROW
+BEGIN
+    UPDATE filmes f
+    JOIN (
+        SELECT idFilme, AVG(nota) as avg_nota
+        FROM notas
+        GROUP BY idFilme
+    ) n ON f.idFilme = n.idFilme
+    SET f.nota = n.avg_nota
+    WHERE f.idFilme = NEW.idFilme;
+END //
+
+CREATE TRIGGER update_film_rating_after_delete
+AFTER DELETE ON notas
+FOR EACH ROW
+BEGIN
+    UPDATE filmes f
+    JOIN (
+        SELECT idFilme, AVG(nota) as avg_nota
+        FROM notas
+        GROUP BY idFilme
+    ) n ON f.idFilme = n.idFilme
+    SET f.nota = n.avg_nota
+    WHERE f.idFilme = OLD.idFilme;
+END //
+
+DELIMITER ;
