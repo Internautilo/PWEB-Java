@@ -24,7 +24,7 @@ public class FilmeDAO implements DAOInterface{
     }
 
     @Override
-    public ResultSet listar(int[] ids) {
+    public ResultSet listar_por_id(int[] ids) {
         StringBuilder idList = new StringBuilder();
         for (int i = 0; i < ids.length; i++) {
             idList.append(ids[i]);
@@ -37,7 +37,7 @@ public class FilmeDAO implements DAOInterface{
     }
 
     @Override
-    public ResultSet listar() {
+    public ResultSet listar_por_id() {
         return this.dbQuery.select_query("filmes", "WHERE removido != 1 ORDER BY idFilme");
     }
 
