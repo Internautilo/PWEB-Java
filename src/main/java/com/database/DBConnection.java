@@ -11,7 +11,7 @@ public class DBConnection {
     private String password = "";
     private Connection conn;
 
-    public DBConnection() {
+    private DBConnection() {
         try {
             Class.forName(this.driver);
             this.conn = DriverManager.getConnection(this.url, this.user, this.password);
@@ -20,7 +20,7 @@ public class DBConnection {
         }
     }
 
-    public DBConnection(String driver, String url, String user, String password) {
+    private DBConnection(String driver, String url, String user, String password) {
         this.driver = driver;
         this.url = url;
         this.user = user;
@@ -33,7 +33,8 @@ public class DBConnection {
         }
     }
 
-    public Connection getConnection() {
-        return this.conn;
+    public static Connection getConnection() {
+        DBConnection connection = new DBConnection();
+        return connection.conn;
     }
 }

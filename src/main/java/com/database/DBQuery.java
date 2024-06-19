@@ -10,20 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 public class DBQuery {
-    private Connection conn;
-    private Statement stmt;
-    private ResultSet rs;
 
-    public DBQuery() {
-        try {
-            this.conn = new DBConnection().getConnection();
-            this.stmt = conn.createStatement();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public ResultSet select_query(String table, String campos, String extra) {
+    public static ResultSet select_query(String table, String campos, String extra) {
         String camposExtras = "";
         String camposSelect = "*";
         if (extra != null) {
@@ -35,19 +23,21 @@ public class DBQuery {
         String query = "SELECT " + camposSelect + " FROM " + table + " " + camposExtras;
         System.out.println(query);
         try {
+            Connection conn = DBConnection.getConnection();
+            Statement stmt = conn.createStatement();
             return stmt.executeQuery(query);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public ResultSet select_query(String table, String extra) {
+    public static ResultSet select_query(String table, String extra) {
         return select_query(table, null, extra);
     }
-    public ResultSet select_query(String table) {
+    public static ResultSet select_query(String table) {
         return select_query(table, null);
     }
 
-    public int insert_query(String table, String campos, String[] values) {
+    public static int insert_query(String table, String campos, String[] values) {
         StringBuilder formatted = new StringBuilder();
         for (int i = 0; i < values.length; i++) {
             formatted.append("'").append(values[i]).append("'");
@@ -61,27 +51,33 @@ public class DBQuery {
         String query = "INSERT INTO " + table + " (" + campos + ") VALUES (" + formatted + ")";
         System.out.println(query);
         try {
-            return this.stmt.executeUpdate(query);
+            Connection conn = DBConnection.getConnection();
+            Statement stmt = conn.createStatement();
+            return stmt.executeUpdate(query);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    public int update_query(String table, String campos, String extra) {
+    public static int update_query(String table, String campos, String extra) {
         String query = "UPDATE " + table + " SET " + campos + " " + extra;
         System.out.println(query);
         try {
-            return this.stmt.executeUpdate(query);
+            Connection conn = DBConnection.getConnection();
+            Statement stmt = conn.createStatement();
+            return stmt.executeUpdate(query);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    public int delete_query(String table, int id) {
+    public static int delete_query(String table, int id) {
         String query = "UPDATE " + table + " SET removido = 1 WHERE idUsuario = " + id;
         System.out.println(query);
         try {
-            return this.stmt.executeUpdate(query);
+            Connection conn = DBConnection.getConnection();
+            Statement stmt = conn.createStatement();
+            return stmt.executeUpdate(query);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -89,7 +85,9 @@ public class DBQuery {
 
     public void query(String query) {
         try {
-            this.stmt.execute(query);
+            Connection conn = DBConnection.getConnection();
+            Statement stmt = conn.createStatement();
+            stmt.execute(query);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
