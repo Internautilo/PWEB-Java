@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registro</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -15,14 +15,14 @@
             justify-content: center;
             align-items: center;
         }
-        .login-container {
+        .register-container {
             max-width: 500px; /* Aumentei a largura máxima */
             padding: 30px; /* Aumentei o padding */
             background-color: #ffffff;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .login-container h1 {
+        .register-container h1 {
             text-align: center;
             color: #EE0002;
             font-size: 24px;
@@ -40,9 +40,13 @@
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <form action="user/login" method="post">
+    <div class="register-container">
+        <h1>Cadastro</h1>
+        <form action="user/insert" method="post">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" required>
@@ -51,8 +55,12 @@
                 <label for="senha">Senha:</label>
                 <input type="password" class="form-control" id="senha" name="senha" required>
             </div>
+            <div class="form-group">
+                <label for="confirmar-senha">Confirmar Senha:</label>
+                <input type="password" class="form-control" id="confirmar-senha" name="confirmar-senha">
+            </div>
             <div class="form-group text-center">
-                <input type="submit" class="btn btn-primary" value="Entrar">
+                <input type="submit" class="btn btn-primary" value="Cadastrar">
             </div>
         </form>
     </div>
