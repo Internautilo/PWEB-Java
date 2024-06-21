@@ -1,3 +1,4 @@
+<%@ page import="com.model.Usuario" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -102,20 +103,24 @@
             </ul>
         </div>
     </nav>
-
+<% Usuario usuario = (Usuario) session.getAttribute("user");%>
     <!-- Gerenciamento de Usuário -->
+    <%= usuario.nome %>
+    <%= usuario.email %>
     <div class="container user-management-container">
         <h1>Gerenciamento de Usuário</h1>
-        <form action="/update-name" method="post">
-            <div class="form-group">
+        <form action="user/update" method="post">
+            <input type="hidden" value="">
+             <div class="form-group">
                 <label for="nome">Mudar Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome" required>
+                <input type="text" class="form-control" id="nome" name="nome" value="<%= usuario.nome %>" required>
             </div>
             <div class="form-group text-center">
                 <input type="submit" class="btn btn-primary" value="Atualizar Nome">
             </div>
         </form>
-        <form action="/update-password" method="post" class="mt-4">
+        <form action="user/update" method="post" class="mt-4">
+            <input type="hidden" value="">
             <div class="form-group">
                 <label for="senha-antiga">Senha Antiga:</label>
                 <input type="password" class="form-control" id="senha-antiga" name="senha-antiga" required>
@@ -128,7 +133,7 @@
                 <input type="submit" class="btn btn-primary" value="Atualizar Senha">
             </div>
         </form>
-        <form action="/delete-account" method="post" class="mt-4">
+        <form action="user/delete" method="post" class="mt-4">
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-danger btn-delete">Excluir Conta</button>
             </div>
