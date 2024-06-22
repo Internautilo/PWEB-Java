@@ -25,18 +25,6 @@ public class FilmeServlet extends HttpServlet {
                 list_movie(request, response);
                 break;
         }
-
-    }
-
-    private void list_movie(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        try {
-            Filme filme = FilmeDAO.get_filme_by_id(id);
-            request.setAttribute("filme", filme);
-            request.getRequestDispatcher("/viewmovie.jsp").forward(request, response);
-        } catch (SQLException | ServletException | IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -93,5 +81,16 @@ public class FilmeServlet extends HttpServlet {
     private void delete_filme(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         FilmeDAO.delete_filme(id);
+    }
+
+    private void list_movie(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        try {
+            Filme filme = FilmeDAO.get_filme_by_id(id);
+            request.setAttribute("filme", filme);
+            request.getRequestDispatcher("/viewmovie.jsp").forward(request, response);
+        } catch (SQLException | ServletException | IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
