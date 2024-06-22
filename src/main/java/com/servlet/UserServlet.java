@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import java.io.File;
+
 /**
  * Servlet responsável pelo CRUD, login e logout dos usuários
  *
@@ -83,6 +85,10 @@ public class UserServlet extends HttpServlet {
         String password = req.getParameter("password");
         Usuario user = new Usuario(name, email, password);
         int result = UsuarioDAO.update_user(id, user);
+        if (result > 0) {
+            HttpSession session = req.getSession();
+            session.setAttribute("user", user);
+        }
     }
 
     private void delete_user(HttpServletRequest req, HttpServletResponse resp) throws Exception {
