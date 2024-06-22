@@ -1,6 +1,9 @@
 /* webapp/css/style.css */
 
 /* Estilos globais */
+* {
+    font-family: Coolvetica V2, monospace !important;
+}
 body {
     background-color: #f7f7f2;
     font-family: Arial, sans-serif;
@@ -116,4 +119,14 @@ body .login-container {
 }
 .rating-section button:hover {
     background-color: #bb0001;
+}
+
+@font-face {
+    font-family: "Coolvetica V2";
+    src: url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.eot");
+    src: url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.svg#Coolvetica V2")format("svg");
 }
