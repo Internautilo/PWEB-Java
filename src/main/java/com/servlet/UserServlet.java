@@ -3,6 +3,7 @@ package com.servlet;
 import com.dao.UsuarioDAO;
 import com.model.Usuario;
 import com.service.Hash;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Servlet responsável pelo CRUD, login e logout dos usuários
@@ -22,6 +24,7 @@ import java.io.File;
  * @url /user/logout    - @params null
  */
 @WebServlet(urlPatterns = {"/user/insert", "/user/update", "/user/delete", "/user/login", "/user/logout"})
+
 public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String path = req.getServletPath();
@@ -67,6 +70,21 @@ public class UserServlet extends HttpServlet {
         }
 
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String Path = req.getServletPath();
+        switch (Path) {
+            case "/user/logout":
+                try {
+                    logout(req, resp);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+        }
+
+        }
     // TODO: Adicionar validação de que a query funcionou em todas as funções
 
     private void insert_user(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -86,7 +104,11 @@ public class UserServlet extends HttpServlet {
         String senha = req.getParameter("senha");
         Usuario user = new Usuario(name, email, senha);
         int result = UsuarioDAO.update_user(id, user);
-        resp.sendRedirect(req.getContextPath() +"/index.jsp");
+        if (result > 0) {
+            HttpSession session = req.getSession();
+            session.setAttribute("user", user);
+        }
+        resp.sendRedirect(req.getContextPath()+ File.separator + "usermanagement.jsp");
     }
 
     private void delete_user(HttpServletRequest req, HttpServletResponse resp) throws Exception {

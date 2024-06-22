@@ -96,8 +96,8 @@
                         Usuário
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/gerenciar-conta">Gerenciar Conta</a>
-                        <a class="dropdown-item" href="/logout">Sair</a>
+                        <a class="dropdown-item" href="usermanagement.jsp">Gerenciar Conta</a>
+                        <a class="dropdown-item" href="user/logout">Sair</a>
                     </div>
                 </li>
             </ul>
@@ -120,14 +120,16 @@
             </div>
         </form>
         <form action="user/update" method="post" class="mt-4">
-            <input type="hidden" value="">
+            <input type="hidden" value="<%= usuario.id %>" name="id">
+            <input type="hidden" value="<%= usuario.email %>" name="email">
+            <input type="hidden" value="<%= usuario.nome %>" name="nome">
             <div class="form-group">
-                <label for="senha-antiga">Senha Antiga:</label>
-                <input type="password" class="form-control" id="senha-antiga" name="senha-antiga" required>
+                <label for="senha">Nova Senha:</label>
+                <input type="password" class="form-control" id="senha" name="senha" required>
             </div>
             <div class="form-group">
-                <label for="senha">Senha Nova:</label>
-                <input type="password" class="form-control" id="senha" name="senha" required>
+                <label for="senha">Confirmar Nova:</label>
+                <input type="password" class="form-control" id="confirmar-senha" name="confirmar-senha" required>
             </div>
             <div class="form-group text-center">
                 <input type="submit" class="btn btn-primary" value="Atualizar Senha">
