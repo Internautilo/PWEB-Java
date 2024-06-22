@@ -71,37 +71,8 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="#">
-            <img src="logo.png" alt="Logo"> Nome do Sistema
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/lista-de-filmes">Lista de Filmes</a>
-                </li>
-                <li class="nav-item" id="login-nav">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                <li class="nav-item" id="register-nav">
-                    <a class="nav-link" href="/register">Cadastrar</a>
-                </li>
-                <li class="nav-item dropdown" id="user-nav" style="display: none;">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Usuário
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/gerenciar-conta">Gerenciar Conta</a>
-                        <a class="dropdown-item" href="/logout">Sair</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
+<%@ include file="navbar.jsp" %>
 
     <!-- Gerenciamento de Usuário -->
     <div class="container user-management-container">
