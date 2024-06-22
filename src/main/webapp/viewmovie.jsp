@@ -1,5 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@page pageEncoding="UTF-8" language="java" contentType="text/html; ISO-8859-1" %>
+<%@ page import="com.model.Filme" %>
+<% Filme filme = (Filme) request.getAttribute("filme");
+    if (filme == null) {
+        filme = new Filme(0, "titulo", "descricao", "diretor", "genero", "imagem", 4);
+    }
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,7 +30,7 @@
                             <h3>Avalie este filme</h3>
                             <p class="login-warning">Você precisa estar logado para avaliar.</p>
                             <div class="rating-form">
-                                <input type="number" min="0" max="5" step="0.1" placeholder="Nota">
+                                <input type="number" min="0" max="10" step="0.1" placeholder="Nota">
                                 <button>Avaliar Filme</button>
                             </div>
                         </div>
