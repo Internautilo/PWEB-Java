@@ -23,7 +23,7 @@ body {
     color: #9bd582;
 }
 .navbar-brand img {
-    height: 30px;
+    height: 22px;
     margin-right: 10px;
 }
 .dropdown-menu a {
@@ -129,4 +129,16 @@ body .login-container {
     url("https://db.onlinewebfonts.com/t/5d474fd2ebc6ef77c9bf3219391bed9c.woff")format("woff"),
     url("https://db.onlinewebfonts.com/t/5d474fd2ebc6ef77c9bf3219391bed9c.ttf")format("truetype"),
     url("https://db.onlinewebfonts.com/t/5d474fd2ebc6ef77c9bf3219391bed9c.svg#CoolveticaRg-Regular")format("svg");
+}
+.btn-submit {
+    background-color: #76ac5f;
+    color: #ffffff;
+    border: 2px solid #76ac5f; /* Borda verde */
+    border-radius: 5px; /* Arredondamento da borda */
+    padding: 10px 20px; /* Espaçamento interno */
+    transition: background-color 0.3s, border-color 0.3s; /* Transição suave */
+}
+.btn-submit:hover {
+    background-color: #9bd582;
+    border-color: #9bd582; /* Mudança da cor da borda no hover */
 }
