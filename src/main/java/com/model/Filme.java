@@ -41,37 +41,5 @@ public class Filme {
         this.diretor = diretor;
         this.genero = genero;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getDiretor() {
-        return diretor;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public String getImagem() {
-        return imagem;
-    }
-
-    public double getNota() {
-        return nota;
-    }
 }
 

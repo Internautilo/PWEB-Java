@@ -1,3 +1,9 @@
+<%@ page import="com.model.Filme" %>
+<% Filme filme = (Filme) request.getAttribute("filme");
+    if (filme == null) {
+        filme = new Filme(0, "titulo", "descricao", "diretor", "genero", "imagem", 4);
+    }
+%>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -116,11 +122,11 @@
                         <img src="url-da-imagem-do-filme" alt="Imagem do Filme">
                     </div>
                     <div class="col-md-8 movie-info">
-                        <h2>${filme.titulo}</h2>
-                        <p><strong>Descrição:</strong>${filme.descricao}</p>
-                        <p><strong>Gênero:</strong>${filme.genero}</p>
-                        <p><strong>Diretor:</strong>${filme.diretor}</p>
-                        <p><strong>Avaliação Média:</strong>${filme.nota}</p>
+                        <h2><%= filme.titulo %></h2>
+                        <p><strong>Descrição:</strong><%= filme.descricao%></p>
+                        <p><strong>Gênero:</strong><%=filme.genero%>></p>
+                        <p><strong>Diretor:</strong><%= filme.diretor%>></p>
+                        <p><strong>Avaliação Média:</strong><%= filme.nota%>></p>
 
                         <div class="rating-section">
                             <h3>Avalie este filme</h3>
