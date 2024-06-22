@@ -105,12 +105,12 @@
     </nav>
 <% Usuario usuario = (Usuario) session.getAttribute("user");%>
     <!-- Gerenciamento de Usuário -->
-    <%= usuario.nome %>
-    <%= usuario.email %>
     <div class="container user-management-container">
         <h1>Gerenciamento de Usuário</h1>
         <form action="user/update" method="post">
-            <input type="hidden" value="">
+            <input type="hidden" value="<%= usuario.id %>" name="id">
+            <input type="hidden" value="<%= usuario.email %>" name="email">
+            <input type="hidden" value="<%= usuario.senha %>" name="senha">
              <div class="form-group">
                 <label for="nome">Mudar Nome:</label>
                 <input type="text" class="form-control" id="nome" name="nome" value="<%= usuario.nome %>" required>
@@ -126,8 +126,8 @@
                 <input type="password" class="form-control" id="senha-antiga" name="senha-antiga" required>
             </div>
             <div class="form-group">
-                <label for="senha-nova">Senha Nova:</label>
-                <input type="password" class="form-control" id="senha-nova" name="senha-nova" required>
+                <label for="senha">Senha Nova:</label>
+                <input type="password" class="form-control" id="senha" name="senha" required>
             </div>
             <div class="form-group text-center">
                 <input type="submit" class="btn btn-primary" value="Atualizar Senha">

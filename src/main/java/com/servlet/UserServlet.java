@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import java.io.File;
+
 /**
  * Servlet responsável pelo CRUD, login e logout dos usuários
  *
@@ -74,15 +76,17 @@ public class UserServlet extends HttpServlet {
 
         Usuario user = new Usuario(name, email, senha);
         UsuarioDAO.create_user(user);
+        resp.sendRedirect(req.getContextPath()+ File.separator + "index.jsp");
     }
 
     private void update_user(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         int id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("nome");
         String email = req.getParameter("email");
-        String password = req.getParameter("senha");
-        Usuario user = new Usuario(name, email, password);
+        String senha = req.getParameter("senha");
+        Usuario user = new Usuario(name, email, senha);
         int result = UsuarioDAO.update_user(id, user);
+        resp.sendRedirect(req.getContextPath() +"/index.jsp");
     }
 
     private void delete_user(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -103,7 +107,7 @@ public class UserServlet extends HttpServlet {
                 session.setAttribute("user", usuario_cadastrado);
                 boolean isAdmin = UsuarioDAO.is_user_admin(usuario_cadastrado.id);
                 session.setAttribute("isAdmin", isAdmin);
-                resp.sendRedirect("/");
+                resp.sendRedirect(req.getContextPath() +"/index.jsp");
             } else {
                 req.getSession().invalidate();
             }
