@@ -2,7 +2,7 @@
 
 /* Estilos globais */
 * {
-    font-family: Coolvetica V2, monospace !important;
+    font-family: CoolveticaRg-Regular, monospace !important;
 }
 body {
     background-color: #f7f7f2;
@@ -122,11 +122,11 @@ body .login-container {
 }
 
 @font-face {
-    font-family: "Coolvetica V2";
-    src: url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.eot");
-    src: url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/06594b8e23c284f33b51e05d8145f62d.svg#Coolvetica V2")format("svg");
+    font-family: "CoolveticaRg-Regular";
+    src: url("https://db.onlinewebfonts.com/t/5d474fd2ebc6ef77c9bf3219391bed9c.eot");
+    src: url("https://db.onlinewebfonts.com/t/5d474fd2ebc6ef77c9bf3219391bed9c.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/5d474fd2ebc6ef77c9bf3219391bed9c.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/5d474fd2ebc6ef77c9bf3219391bed9c.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/5d474fd2ebc6ef77c9bf3219391bed9c.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/5d474fd2ebc6ef77c9bf3219391bed9c.svg#CoolveticaRg-Regular")format("svg");
 }
