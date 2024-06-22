@@ -6,40 +6,9 @@
     <title>Login</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f7f7f2;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .login-container {
-            max-width: 500px; /* Aumentei a largura máxima */
-            padding: 30px; /* Aumentei o padding */
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .login-container h1 {
-            text-align: center;
-            color: #EE0002;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .form-group input[type="submit"] {
-            background-color: #EE0002;
-            color: #ffffff;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .form-group input[type="submit"]:hover {
-            background-color: #c70000;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<body>
+<body class="d-flex justify-content-center align-items-center">
     <div class="login-container">
         <h1>Login</h1>
         <form action="user/login" method="post">

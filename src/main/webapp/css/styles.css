@@ -1,0 +1,119 @@
+/* webapp/css/style.css */
+
+/* Estilos globais */
+body {
+    background-color: #f7f7f2;
+    font-family: Arial, sans-serif;
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.navbar-custom {
+    background-color: #EE0002;
+    color: #f7f7f2; /* cor do texto */
+}
+.navbar-custom .nav-link {
+    color: #f7f7f2;
+}
+.navbar-custom .nav-link:hover {
+    color: #ffffff;
+}
+.navbar-brand img {
+    height: 30px;
+    margin-right: 10px;
+}
+.dropdown-menu a {
+    color: #EE0002;
+}
+.dropdown-menu a:hover {
+    color: #c70000;
+}
+
+/* Estilos comuns de formulário */
+.form-group input[type="submit"],
+.btn-delete,
+.rating-section button {
+    background-color: #EE0002;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.form-group input[type="submit"]:hover,
+.btn-delete:hover,
+.rating-section button:hover {
+    background-color: #c70000;
+}
+body .login-container {
+    align-items: center;
+}
+
+/* Estilos de login.jsp e registrar.jsp */
+.login-container,
+.register-container {
+    max-width: 500px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.login-container h1,
+.register-container h1 {
+    text-align: center;
+    color: #EE0002;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos de usermanagement.jsp */
+.user-management-container {
+    padding: 30px;
+    background-color: #ffffff;
+    margin: 20px auto;
+    max-width: 800px;
+}
+.user-management-container h1 {
+    color: #EE0002;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilos de viewmovie.jsp */
+.container {
+    margin-top: 30px;
+}
+.movie-details {
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.movie-image img {
+    width: 100%;
+    border-radius: 20px;
+}
+.movie-info h2,
+.rating-section h3 {
+    color: #EE0002;
+}
+.rating-section input[type="number"] {
+    width: 80px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 2px solid #EE0002;
+    border-radius: 10px;
+    text-align: center;
+}
+.rating-section button {
+    padding: 10px 20px;
+    background-color: #EE0002;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.rating-section button:hover {
+    background-color: #bb0001;
+}

@@ -6,74 +6,10 @@
     <title>Gerenciamento de Usuário</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f7f7f2;
-            font-family: Arial, sans-serif;
-        }
-        .navbar-custom {
-            background-color: #EE0002;
-        }
-        .navbar-custom .navbar-brand,
-        .navbar-custom .nav-link {
-            color: #f7f7f2;
-        }
-        .navbar-custom .nav-link:hover {
-            color: #ffffff;
-        }
-        .navbar-toggler {
-            border-color: #f7f7f2;
-        }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
-        .navbar-brand img {
-            height: 30px;
-            margin-right: 10px;
-        }
-        .dropdown-menu a {
-            color: #EE0002;
-        }
-        .dropdown-menu a:hover {
-            color: #c70000;
-        }
-        .user-management-container {
-            padding: 30px;
-            background-color: #ffffff;
-            margin: 20px auto;
-            max-width: 800px;
-        }
-        .user-management-container h1 {
-            color: #EE0002;
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .form-group input[type="submit"] {
-            background-color: #EE0002;
-            color: #ffffff;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .form-group input[type="submit"]:hover {
-            background-color: #c70000;
-        }
-        .btn-delete {
-            background-color: #EE0002;
-            color: #ffffff;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-        }
-        .btn-delete:hover {
-            background-color: #c70000;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<body>
-
 <%@ include file="navbar.jsp" %>
-
+<body>
     <!-- Gerenciamento de Usuário -->
     <div class="container user-management-container">
         <h1>Gerenciamento de Usuário</h1>
