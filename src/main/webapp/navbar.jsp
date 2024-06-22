@@ -6,40 +6,9 @@
     <title>Navbar</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f7f7f2;
-            font-family: Arial, sans-serif;
-        }
-        .navbar-custom {
-            background-color: #EE0002;
-        }
-        .navbar-custom .navbar-brand,
-        .navbar-custom .nav-link {
-            color: #f7f7f2;
-        }
-        .navbar-custom .nav-link:hover {
-            color: #ffffff;
-        }
-        .navbar-toggler {
-            border-color: #f7f7f2;
-        }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
-        .navbar-brand img {
-            height: 30px;
-            margin-right: 10px;
-        }
-        .dropdown-menu a {
-            color: #EE0002;
-        }
-        .dropdown-menu a:hover {
-            color: #c70000;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<body>
+
     <!-- Navbar sem estar logado -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <a class="navbar-brand" href="#">
@@ -91,5 +60,5 @@
             document.getElementById('user-nav').style.display = 'none';
         }
     </script>
-</body>
+
 </html>
