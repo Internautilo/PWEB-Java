@@ -11,14 +11,32 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
 import java.io.*;
+import java.sql.SQLException;
 
-@WebServlet(urlPatterns = {"/filme/insert", "/filme/update", "/filme/delete"})
+@WebServlet(urlPatterns = {"/filme/insert", "/filme/update", "/filme/delete", "/filme"})
 @MultipartConfig(fileSizeThreshold = 1024*1024*50, maxFileSize = 1024*1024*50, maxRequestSize = 1024*1024*100)
 public class FilmeServlet extends HttpServlet {
     private static final String UPLOAD_DIR = "WEB-INF" + File.separator + "upload";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String path = request.getServletPath();
+        switch (path) {
+            case "/filme":
+                list_movie(request, response);
+                break;
+        }
 
+    }
+
+    private void list_movie(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        try {
+            Filme filme = FilmeDAO.get_filme_by_id(id);
+            request.setAttribute("filme", filme);
+            request.getRequestDispatcher("/viewmovie.jsp").forward(request, response);
+        } catch (SQLException | ServletException | IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
