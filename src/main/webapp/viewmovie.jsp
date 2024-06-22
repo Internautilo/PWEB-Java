@@ -20,19 +20,19 @@
                         <img src="url-da-imagem-do-filme" alt="Imagem do Filme">
                     </div>
                     <div class="col-md-8 movie-info">
-                        <h2>Gato de Botas 2</h2>
-                        <p><strong>Descrição:</strong> Em Gato de Botas 2: O Último Pedido, O Gato de Botas descobre que sua paixão pela aventura cobrou seu preço: por conta de seu gosto pelo perigo e pelo desrespeito à segurança pessoal, ele queimou oito de suas nove vidas. Com apenas uma vida restante, o Gato precisa pedir ajuda para uma antiga parceira - que atualmente é sua rival e inimiga mortal, Kitty Pata Mansa - para continuar vivo. Então, o destemido bichano parte em uma jornada épica pela Floresta Negra para encontrar a mítica Estrela dos Desejos, capaz de proporcionar o legendário Último Desejo e restaurar suas nove vidas.</p>
-                        <p><strong>Gênero:</strong> Animação</p>
-                        <p><strong>Diretor:</strong>  Joel Crawford</p>
-                        <p><strong>Avaliação Média:</strong> 4.5/5</p>
-                        
+                        <input type="hidden" value="<%= filme.id%>" name="id">
+                        <h2><%= filme.titulo %></h2>
+                        <p><strong>Descrição:</strong><%= filme.descricao%></p>
+                        <p><strong>Gênero:</strong><%=filme.genero%>></p>
+                        <p><strong>Diretor:</strong><%= filme.diretor%>></p>
+                        <p><strong>Avaliação Média:</strong><%= filme.nota%>></p>
                         <div class="rating-section">
                             <h3>Avalie este filme</h3>
                             <p class="login-warning">Você precisa estar logado para avaliar.</p>
-                            <div class="rating-form">
-                                <input type="number" min="0" max="10" step="0.1" placeholder="Nota">
-                                <button>Avaliar Filme</button>
-                            </div>
+                            <form method="post" action="avaliar" class="rating-form">
+                                <input type="number" min="0" max="10" step="0.1" placeholder="Nota" name="nota">
+                                <button type="submit">Avaliar Filme</button>
+                            </form>
                         </div>
                     </div>
                 </div>
