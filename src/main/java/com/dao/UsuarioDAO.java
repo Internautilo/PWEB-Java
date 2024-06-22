@@ -75,4 +75,10 @@ public class UsuarioDAO {
     public static int delete_user(int id) {
         return DBQuery.delete_query("users", "idUsuario" , id);
     }
+
+    public static boolean is_user_admin(int userId) throws SQLException {
+        ResultSet rs = DBQuery.select_query("admin", "WHERE idUsuario = " + userId + " LIMIT 1");
+        return rs.next();
+    }
 }
+

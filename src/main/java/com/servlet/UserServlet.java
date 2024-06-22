@@ -3,6 +3,7 @@ package com.servlet;
 import com.dao.UsuarioDAO;
 import com.model.Usuario;
 import com.service.Hash;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.File;
-
+import java.io.IOException;
 /**
  * Servlet responsável pelo CRUD, login e logout dos usuários
  *
@@ -24,7 +25,7 @@ import java.io.File;
 @WebServlet(urlPatterns = {"/user/insert", "/user/update", "/user/delete", "/user/login", "/user/logout"})
 public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        String path = req.getPathInfo();
+        String path = req.getServletPath();
 
         // TODO: Validar parametros recebidos
         switch (path) {
@@ -67,28 +68,43 @@ public class UserServlet extends HttpServlet {
         }
 
     }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String Path = req.getServletPath();
+        switch (Path) {
+            case "/user/logout":
+                try {
+                    logout(req, resp);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+        }
+    }
     // TODO: Adicionar validação de que a query funcionou em todas as funções
 
     private void insert_user(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        String name = req.getParameter("name");
+        String name = req.getParameter("nome");
         String email = req.getParameter("email");
-        String password = req.getParameter("password");
+        String senha = req.getParameter("senha");
 
-        Usuario user = new Usuario(name, email, password);
+        Usuario user = new Usuario(name, email, senha);
         UsuarioDAO.create_user(user);
+        resp.sendRedirect(req.getContextPath() + File.separator + "index.jsp");
     }
 
     private void update_user(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         int id = Integer.parseInt(req.getParameter("id"));
-        String name = req.getParameter("name");
+        String name = req.getParameter("nome");
         String email = req.getParameter("email");
-        String password = req.getParameter("password");
-        Usuario user = new Usuario(name, email, password);
+        String senha = req.getParameter("senha");
+        Usuario user = new Usuario(name, email, senha);
         int result = UsuarioDAO.update_user(id, user);
         if (result > 0) {
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
         }
+        resp.sendRedirect(req.getContextPath()+ File.separator + "usermanagement.jsp");
     }
 
     private void delete_user(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -98,7 +114,7 @@ public class UserServlet extends HttpServlet {
 
     private void login(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         String email = req.getParameter("email");
-        String senha = req.getParameter("password");
+        String senha = req.getParameter("senha");
 
         Usuario usuario_cadastrado = UsuarioDAO.get_user_by_email(email);
 
@@ -107,7 +123,9 @@ public class UserServlet extends HttpServlet {
             if (Hash.validate(senha, usuario_cadastrado.senha)) {
                 HttpSession session = req.getSession();
                 session.setAttribute("user", usuario_cadastrado);
-                resp.sendRedirect("/");
+                boolean isAdmin = UsuarioDAO.is_user_admin(usuario_cadastrado.id);
+                session.setAttribute("isAdmin", isAdmin);
+                resp.sendRedirect(req.getContextPath() +"/index.jsp");
             } else {
                 req.getSession().invalidate();
             }
