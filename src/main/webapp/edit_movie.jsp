@@ -2,10 +2,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Filme</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <%@ include file="navbar.jsp" %>
 <body>
@@ -16,33 +13,28 @@
         <form action="process_edit_movie.php" method="POST">
             <div class="form-group">
                 <label for="nome">Nome do Filme:</label>
-                <input type="text" class="form-control" id="nome" name="nome" value="Nome do Filme">
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do filme">
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição:</label>
-                <textarea class="form-control" id="descricao" name="descricao" rows="5">Descrição do Filme.</textarea>
+                <textarea class="form-control" id="descricao" name="descricao" rows="5" placeholder="Digite a descição do filme"></textarea>
             </div>
             <div class="form-group">
                 <label for="genero">Gênero:</label>
-                <input type="text" class="form-control" id="genero" name="genero" value="Ação">
+                <input type="text" class="form-control" id="genero" name="genero" placeholder="Digite o gênero do filme">
             </div>
             <div class="form-group">
                 <label for="diretor">Diretor:</label>
-                <input type="text" class="form-control" id="diretor" name="diretor" value="Diretor do Filme">
+                <input type="text" class="form-control" id="diretor" name="diretor" placeholder="Digite o(s) nome(s) do(s) diretor(es) do filme">
             </div>
             <div class="form-group">
                 <label for="cartaz">Cartaz do Filme:</label>
-                <input type="file" class="form-control-file" id="cartaz" name="cartaz" accept="image/*">
+                <input type="file" class="form-control" id="cartaz" name="cartaz" accept="image/*">
                 <small id="cartazHelp" class="form-text text-muted">Deixe em branco para manter o cartaz atual.</small>
             </div>
             <button type="submit" class="btn btn-submit">Salvar</button>
         </form>
     </div>
 </div>
-
-<!-- Scripts do Bootstrap (jQuery e Popper.js necessários para o Bootstrap) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
