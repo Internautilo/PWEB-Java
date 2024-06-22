@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.model.Filme" %>
+<%@ page import="com.model.Usuario" %>
 <% Filme filme = (Filme) request.getAttribute("filme");
     if (filme == null) {
         filme = new Filme(0, "titulo", "descricao", "diretor", "genero", "imagem", 4);
@@ -11,6 +12,7 @@
     <title>Nome do Sistema</title>
 </head>
 <body>
+<% Usuario usuario = (Usuario) session.getAttribute("user");%>
 <%@ include file="navbar.jsp" %>
     <div class="container">
         <div class="row justify-content-center">
@@ -28,11 +30,15 @@
                         <p><strong>Avaliação Média:</strong><%= filme.nota%>></p>
                         <div class="rating-section">
                             <h3>Avalie este filme</h3>
-                            <p class="login-warning">Você precisa estar logado para avaliar.</p>
+                            <% if (usuario != null) { %>
                             <form method="post" action="avaliar" class="rating-form">
-                                <input type="number" min="0" max="10" step="0.1" placeholder="Nota" name="nota">
+                                <input type="hidden" value="<%= filme.id%>" name="id">
+                                <input type="number" min="0" max="10" step="0.1" placeholder="Nota" name="nota" required>
                                 <button type="submit">Avaliar Filme</button>
                             </form>
+                            <% } else { %>
+                            <p>Você precisa estar <a href="login.jsp">logado</a> para avaliar.</p>
+                            <% } %>
                         </div>
                     </div>
                 </div>
