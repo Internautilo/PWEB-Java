@@ -16,7 +16,7 @@
             <div class="col-md-8 movie-details">
                 <div class="row">
                     <div class="col-md-4 movie-image">
-                        <img src="url-da-imagem-do-filme" alt="Imagem do Filme">
+                        <img src="img/unnamed.jpg" alt="Imagem do Filme">
                     </div>
                     <div class="col-md-8 movie-info">
                         <h2>Gato de Botas 2</h2>
