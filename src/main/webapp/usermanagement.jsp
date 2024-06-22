@@ -7,7 +7,11 @@
 </head>
 <%@ include file="navbar.jsp" %>
 <body>
-<% Usuario usuario = (Usuario) session.getAttribute("user");%>
+<% Usuario usuario = (Usuario) session.getAttribute("user");
+    if (usuario == null) {
+        usuario = new Usuario(1, "nome", "email", "senha");
+    }
+%>
     <!-- Gerenciamento de Usuário -->
     <div class="container user-management-container rounded rounded-4">
         <h1>Gerenciamento de Usuário</h1>
