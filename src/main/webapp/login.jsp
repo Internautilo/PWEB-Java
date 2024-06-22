@@ -4,6 +4,7 @@
 <head>
     <title>Login</title>
 </head>
+<%@ include file="navbar.jsp" %>
 <body class="d-flex justify-content-center align-items-center">
     <div class="login-container">
         <h1>Login</h1>

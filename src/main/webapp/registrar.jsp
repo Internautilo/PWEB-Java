@@ -4,6 +4,7 @@
 <head>
     <title>Registro</title>
 </head>
+<%@include file="navbar.jsp"%>
 <body class="d-flex justify-content-center align-items-center">
     <div class="register-container">
         <h1>Cadastro</h1>
