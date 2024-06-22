@@ -122,6 +122,7 @@
                         <img src="url-da-imagem-do-filme" alt="Imagem do Filme">
                     </div>
                     <div class="col-md-8 movie-info">
+                        <input type="hidden" value="<%= filme.id%>" name="id">
                         <h2><%= filme.titulo %></h2>
                         <p><strong>Descrição:</strong><%= filme.descricao%></p>
                         <p><strong>Gênero:</strong><%=filme.genero%>></p>
