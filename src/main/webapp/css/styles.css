@@ -5,7 +5,7 @@
     font-family: CoolveticaRg-Regular, monospace !important;
 }
 body {
-    background-color: #f7f7f2;
+    background-color: #353c46;
     font-family: Arial, sans-serif;
     /*display: flex;*/
     justify-content: center;
@@ -13,31 +13,31 @@ body {
     height: 100vh;
 }
 .navbar-custom {
-    background-color: #EE0002;
-    color: #f7f7f2; /* cor do texto */
+    background-color: #353c46;
+    color: #76ac5f; /* cor do texto */
 }
 .navbar-custom .nav-link {
-    color: #f7f7f2;
+    color: #76ac5f;
 }
 .navbar-custom .nav-link:hover {
-    color: #ffffff;
+    color: #9bd582;
 }
 .navbar-brand img {
     height: 30px;
     margin-right: 10px;
 }
 .dropdown-menu a {
-    color: #EE0002;
+    color: #353c46;
 }
 .dropdown-menu a:hover {
-    color: #c70000;
+    color: #76ac5f;
 }
 
 /* Estilos comuns de formulário */
 .form-group input[type="submit"],
 .btn-delete,
 .rating-section button {
-    background-color: #EE0002;
+    background-color: #76ac5f;
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -45,7 +45,7 @@ body {
 .form-group input[type="submit"]:hover,
 .btn-delete:hover,
 .rating-section button:hover {
-    background-color: #c70000;
+    background-color: #76ac5f;
 }
 body .login-container {
     align-items: center;
@@ -63,7 +63,7 @@ body .login-container {
 .login-container h1,
 .register-container h1 {
     text-align: center;
-    color: #EE0002;
+    color: #76ac5f;
     font-size: 24px;
     margin-bottom: 20px;
 }
@@ -76,7 +76,7 @@ body .login-container {
     max-width: 800px;
 }
 .user-management-container h1 {
-    color: #EE0002;
+    color: #76ac5f;
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
@@ -98,19 +98,19 @@ body .login-container {
 }
 .movie-info h2,
 .rating-section h3 {
-    color: #EE0002;
+    color: #353c46;
 }
 .rating-section input[type="number"] {
     width: 80px;
     padding: 10px;
     margin-right: 10px;
-    border: 2px solid #EE0002;
+    border: 2px solid #353c46;
     border-radius: 10px;
     text-align: center;
 }
 .rating-section button {
     padding: 10px 20px;
-    background-color: #EE0002;
+    background-color: #353c46;
     color: white;
     border: none;
     border-radius: 20px;
@@ -118,7 +118,7 @@ body .login-container {
     transition: background-color 0.3s;
 }
 .rating-section button:hover {
-    background-color: #bb0001;
+    background-color: #76ac5f;
 }
 
 @font-face {

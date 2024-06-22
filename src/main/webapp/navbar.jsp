@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,8 +12,8 @@
 
     <!-- Navbar sem estar logado -->
     <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="#">
-            <img src="logo.png" alt="Logo"> Nome ?????????
+        <a class="navbar-brand" href="index.jsp">
+            <img src="img/logonova.png" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,10 +24,10 @@
                     <a class="nav-link" href="/lista-de-filmes">Lista de Filmes</a>
                 </li>
                 <li class="nav-item" id="login-nav">
-                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link" href="/login.jsp">Login</a>
                 </li>
                 <li class="nav-item" id="register-nav">
-                    <a class="nav-link" href="/register">Cadastrar</a>
+                    <a class="nav-link" href="/registrar.jsp">Cadastrar</a>
                 </li>
                 <li class="nav-item dropdown" id="user-nav" style="display: none;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
