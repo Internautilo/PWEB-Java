@@ -7,6 +7,7 @@
     <title>Navbar</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap_5.3/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
@@ -21,21 +22,21 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/lista-de-filmes">Lista de Filmes</a>
+                    <a class="nav-link" href="lista-de-filmes">Lista de Filmes</a>
                 </li>
                 <li class="nav-item" id="login-nav">
-                    <a class="nav-link" href="/login.jsp">Login</a>
+                    <a class="nav-link" href="login.jsp">Login</a>
                 </li>
                 <li class="nav-item" id="register-nav">
-                    <a class="nav-link" href="/registrar.jsp">Cadastrar</a>
+                    <a class="nav-link" href="registrar.jsp">Cadastrar</a>
                 </li>
                 <li class="nav-item dropdown" id="user-nav" style="display: none;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Usuário
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/gerenciar-conta">Gerenciar Conta</a>
-                        <a class="dropdown-item" href="/logout">Sair</a>
+                        <a class="dropdown-item" href="usermanagement.jsp">Gerenciar Conta</a>
+                        <a class="dropdown-item" href="user/logout">Sair</a>
                     </div>
                 </li>
             </ul>
@@ -48,10 +49,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         // Simulando estado de login do usuário
-        var isLoggedIn = false; // Altere para true se o usuário estiver logado
-
+        var isLoggedIn = <%= session.getAttribute("user") %>; // Altere para true se o usuário estiver logado
+        console.log(isLoggedIn);
         // Mostrar ou ocultar botões de login/cadastro e usuário com base no estado de login
-        if (isLoggedIn) {
+        if (isLoggedIn !== "null") {
             document.getElementById('login-nav').style.display = 'none';
             document.getElementById('register-nav').style.display = 'none';
             document.getElementById('user-nav').style.display = 'block';
