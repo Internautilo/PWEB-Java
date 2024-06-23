@@ -29,9 +29,9 @@
                     <button id="search-button" class="btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-3">
                 <div class="input-group mb-3">
-                    <input id="nota_input" type="text" class="form-control" placeholder="Nota" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input id="nota_input" type="text" class="form-control" placeholder="Nota mínima" aria-label="Recipient's username" aria-describedby="basic-addon2">
                 </div>
             </div>
         </div>
@@ -68,14 +68,24 @@
 <script>
     function pesquisar() {
         var searchText = $('#search-input').val().toLowerCase();
-        var valor = $('#nota_input').val().toin
+        var valor = parseFloat($('#nota_input').val());
         $('#movies_div').find('.card').each(function() {
             var titulo = $(this).find(".titulo").prop("value").toLowerCase();
             var genero = $(this).find(".genero").prop("value").toLowerCase();
             var diretor = $(this).find(".diretor").prop("value").toLowerCase();
-
+            var nota = parseFloat($(this).find(".nota").prop("value"));
+            var notaConferir;
+            if (!isNaN(valor)) {
+                notaConferir = valor;
+            } else {
+                notaConferir = 0;
+            }
             if (titulo.includes(searchText) || genero.includes(searchText) || diretor.includes(searchText)) {
-                $(this).show();
+                if (nota >= notaConferir) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
             } else {
                 $(this).hide();
             }
@@ -83,4 +93,6 @@
     }
     $('#search-input').on('input', pesquisar);
     $('#search-button').on('click', pesquisar);
+    $('#nota_input').on('input', pesquisar);
+    $.ready(pesquisar);
 </script>
