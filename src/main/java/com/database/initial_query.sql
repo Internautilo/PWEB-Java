@@ -90,7 +90,11 @@ DELIMITER ;
 
 INSERT INTO users (nome, email, senha) VALUES ('administrador', 'adm@email.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3');
 INSERT INTO admin (idUsuario) VALUES (1);
-INSERT INTO filmes (titulo, descricao, diretor, genero, imagem, nota, removido) VALUES ('titulo', 'descricao', 'diretor', 'genero', 'imagem', 0, 0);
+-- Insere os filmes que aparecem na homepage dentro do banco
+INSERT INTO filmes (titulo, descricao, diretor, genero, imagem, nota, removido) VALUES ('Super Herói - O Filme', 'O jovem estudante Rick Riker tem sua vida mudada quando, numa excursão a um laboratório de pesquisa animal, é picado por uma libélula geneticamente alterada. No dia seguinte, ele acorda com superpoderes.', 'Craig Mazin', 'Comédia', 'homem_libelula.jpg', 10, 0);
+INSERT INTO filmes (titulo, descricao, diretor, genero, imagem, nota, removido) VALUES ('Gente Grande', 'A morte do treinador de basquete de infância de velhos amigos reúne a turma no mesmo lugar que celebraram um campeonato anos atrás. Os amigos, acompanhados de suas esposas e filhos, descobrem que idade não significa o mesmo que maturidade.', 'Dennis Dugan ', 'Comédia', 'gente_grande.jpg', 10, 0);
+INSERT INTO filmes (titulo, descricao, diretor, genero, imagem, nota, removido) VALUES ('Kung-Fusão', 'Ao tentarem enganar os residentes de Pig Sty Alley, fingindo ser de uma gangue, o estranho Sing e seu amigo idiota Bones são surpreendidos pelos verdadeiros bandidos. Ameaçados, são defendidos por um grande mestre em artes marciais.', 'Stephen Chow', 'Comédia', 'kung_fusao.jpg', 10, 0);
+
 # INSERT INTO notas (notas.idFilme, notas.idUsuario, nota) VALUES (1, 1, 5.0);
 
 -- PARA EXCLUIR AS TABELAS APENAS
