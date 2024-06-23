@@ -10,7 +10,11 @@
     <link href="bootstrap_5.3/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<%     Boolean isAdmin = (Boolean) session.getAttribute("isAdmin"); %>
+<%  Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+    if (isAdmin == null) {
+        isAdmin = false;
+    }
+%>
     <!-- Navbar sem estar logado -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <a class="navbar-brand" href="index.jsp">
