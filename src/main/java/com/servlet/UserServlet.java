@@ -137,6 +137,6 @@ public class UserServlet extends HttpServlet {
     private void logout(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         HttpSession session = req.getSession();
         session.invalidate();
-        resp.sendRedirect("/");
+        resp.sendRedirect(req.getContextPath());
     }
 }
