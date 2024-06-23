@@ -22,11 +22,11 @@
             <input type="password" class="form-control" id="senha" name="senha" required>
         </div>
         <div class="form-group text-center">
-            <input type="submit" class="btn btn-primary" value="Entrar">
+            <input type="submit" class="btn btn-primary" value="Entrar" >
         </div>
     </form>
     <div class="text-center mt-3">
-        <a href="register.jsp" class="btn btn-secondary btn-sm">Registrar</a>
+        <a href="registrar.jsp" class="btn btn-secondary btn-sm">Registrar</a>
     </div>
 </div>
 
