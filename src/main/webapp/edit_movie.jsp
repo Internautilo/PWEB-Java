@@ -21,24 +21,24 @@
 <div class="user-management-container rounded rounded-4">
     <h1 class="text-center mb-4">Editar Filme</h1>
 
-    <form action="filme/update" method="POST">
+    <form action="filme/update" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="<%=filme.id%>" name="id">
         <input type="hidden" value="<%=filme.nota%>" name="nota">
         <div class="form-group">
-            <label for="nome">Nome do Filme: </label>
-            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="<%= filme.titulo%>">
+            <label for="titulo">Nome do Filme: </label>
+            <input type="text" class="form-control" id="titulo" name="titulo" value="<%= filme.titulo%>">
         </div>
         <div class="form-group">
             <label for="descricao">Descrição: </label>
-            <textarea class="form-control" id="descricao" name="descricao" rows="5" placeholder="<%= filme.descricao%>"></textarea>
+            <textarea class="form-control" id="descricao" name="descricao" rows="5"><%= filme.descricao%></textarea>
         </div>
         <div class="form-group">
             <label for="genero">Gênero: </label>
-            <input type="text" class="form-control" id="genero" name="genero" placeholder="<%= filme.genero%>">
+            <input type="text" class="form-control" id="genero" name="genero" value="<%= filme.genero%>">
         </div>
         <div class="form-group">
             <label for="diretor">Diretor: </label>
-            <input type="text" class="form-control" id="diretor" name="diretor" placeholder="<%= filme.diretor%>">
+            <input type="text" class="form-control" id="diretor" name="diretor" value="<%= filme.diretor%>">
         </div>
         <div class="form-group">
             <label for="imagem">Cartaz do Filme: </label>
