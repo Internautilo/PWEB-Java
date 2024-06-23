@@ -7,6 +7,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap_5.3/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <%  Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
     if (isAdmin == null) {
@@ -24,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="crudadm.jsp">Lista de Filmes</a>
+                    <a class="nav-link" href="movies.jsp">Lista de Filmes</a>
                 </li>
                 <li class="nav-item" id="login-nav">
                     <a class="nav-link" href="login.jsp">Login</a>
