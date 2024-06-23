@@ -15,10 +15,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8 movie-details">
                 <div class="row">
-                    <div class="col-md-4 movie-image">
+                    <div class="col-md-6 movie-image h-200">
                         <img src="img/unnamed.jpg" alt="Imagem do Filme">
                     </div>
-                    <div class="col-md-8 movie-info">
+                    <div class="col-md-6 movie-info">
                         <h2>Gato de Botas 2</h2>
                         <p><strong>Descrição:</strong> Em Gato de Botas 2: O Último Pedido, O Gato de Botas descobre que sua paixão pela aventura cobrou seu preço: por conta de seu gosto pelo perigo e pelo desrespeito à segurança pessoal, ele queimou oito de suas nove vidas. Com apenas uma vida restante, o Gato precisa pedir ajuda para uma antiga parceira - que atualmente é sua rival e inimiga mortal, Kitty Pata Mansa - para continuar vivo. Então, o destemido bichano parte em uma jornada épica pela Floresta Negra para encontrar a mítica Estrela dos Desejos, capaz de proporcionar o legendário Último Desejo e restaurar suas nove vidas.</p>
                         <p><strong>Gênero:</strong> Animação</p>

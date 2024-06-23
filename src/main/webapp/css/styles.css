@@ -92,7 +92,7 @@ body .login-container {
 .movie-image {
     display: flex;
     align-items: center;
-    height: 550px;
+    height: 650px;
 }
 .movie-image img {
     width: 100%;

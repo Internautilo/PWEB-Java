@@ -12,7 +12,7 @@
 <%@ include file="navbar.jsp" %>
 <body>
     <!-- Gerenciamento de Usuário -->
-    <div class="container user-management-container">
+    <div class="container user-management-container rounded">
         <h1>Gerenciamento de Usuário</h1>
         <form action="/update-name" method="post">
             <div class="form-group">
