@@ -16,18 +16,18 @@
 <%@ include file="navbar.jsp" %>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8 movie-details">
-                <div class="row">
-                    <div class="col-md-4 movie-image">
-                        <img src="url-da-imagem-do-filme" alt="Imagem do Filme">
+            <div class="col-md-10 movie-details">
+                <div class="row mb-4">
+                    <div class="col-4">
+                        <img src="upload/<%=filme.imagem%>" class="card-img w-100 h-100 mt-3 object-fit-cover rounded rounded-3" style="min-height: 350px" alt="Imagem do Filme">
                     </div>
-                    <div class="col-md-8 movie-info">
+                    <div class="col-md-8 mt-sm-3">
                         <input type="hidden" value="<%= filme.id%>" name="id">
                         <h2><%= filme.titulo %></h2>
-                        <p><strong>Descrição:</strong><%= filme.descricao%></p>
-                        <p><strong>Gênero:</strong><%=filme.genero%>></p>
-                        <p><strong>Diretor:</strong><%= filme.diretor%>></p>
-                        <p><strong>Avaliação Média:</strong><%= filme.nota%>></p>
+                        <p><strong>Descrição: </strong><%= filme.descricao%></p>
+                        <p><strong>Gênero: </strong><%=filme.genero%></p>
+                        <p><strong>Diretor: </strong><%= filme.diretor%></p>
+                        <p><strong>Avaliação Média: </strong><%= filme.nota%></p>
                         <div class="rating-section">
                             <h3>Avalie este filme</h3>
                             <% if (usuario != null) { %>
@@ -38,7 +38,7 @@
                                 <button type="submit">Avaliar Filme</button>
                             </form>
                             <% } else { %>
-                            <p>Você precisa estar <a href="login.jsp">logado</a> para avaliar.</p>
+                            <p>Você precisa <a href="login.jsp" class="link-success">fazer login</a> para avaliar.</p>
                             <% } %>
                         </div>
                     </div>
