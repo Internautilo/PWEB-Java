@@ -133,73 +133,27 @@ body .login-container {
 
 /* FRONTPAGE CAROUSEL */
 
-.container-flex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%px;
-    height: 600px;
-    border: 1px solid #000;
-    background-color: #f0f0f0;
-    margin: 0 auto;
-}
-
-.image{
-    height: 1060px;
-    display: block;
-    object-fit: cover;
-    margin: 0;
-    padding: 0;
-}
 
 /* CARD */
-
-.card {
-    width: 300px;
+.card-custom {
+    width: 100%;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     background-color: #fff;
-    margin: 8px; /* Espaçamento entre os cards */
-    flex: 1 1 calc(33.333% - 32px); /* Responsivo */
 }
 
-.card-wrapper {
-    padding: 16px;
-}
-
-.card-box {
-    text-align: center;
-}
-
-.card h2 {
-    margin: 0 0 16px;
-    font-size: 24px;
-    color: #007bff; /* Alterar a cor da fonte do h2 */
-}
-
-.card p {
-    font-size: 16px;
-    color: #555;
-    margin: 0 0 16px;
-}
-
-.card-image {
+.card-custom img {
     width: 100%;
     height: auto;
-    border-top: 1px solid #ccc;
-    margin-top: 16px;
 }
 
-@media (max-width: 768px) {
-    .card {
-        flex: 1 1 calc(50% - 32px); /* 2 cards por linha em telas médias */
-    }
+.card-custom .card-body h3 {
+    font-size: 24px;
 }
 
-@media (max-width: 480px) {
-    .card {
-        flex: 1 1 100%; /* 1 card por linha em telas pequenas */
-    }
+.card-custom .card-body p {
+    font-size: 16px;
+    color: #555;
 }
