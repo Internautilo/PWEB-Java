@@ -41,7 +41,7 @@
             <input type="text" class="form-control" id="diretor" name="diretor" placeholder="<%= filme.diretor%>">
         </div>
         <div class="form-group">
-            <label for="cartaz">Cartaz do Filme: </label>
+            <label for="imagem">Cartaz do Filme: </label>
             <input type="file" class="form-control" id="imagem" name="imagem" accept="image/*">
             <small id="cartazHelp" class="form-text text-muted">Deixe em branco para manter o cartaz atual.</small>
         </div>

@@ -9,10 +9,10 @@
 <div class="user-management-container rounded rounded-4">
     <h1 class="text-center mb-4">Adicionar Filme</h1>
 
-    <form action="process_add_movie.php" method="POST">
+    <form enctype="multipart/form-data" action="filme/insert" method="POST">
         <div class="form-group">
-            <label for="nome" class="form-label">Nome do Filme:</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do filme" required>
+            <label for="titulo" class="form-label">Nome do Filme:</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Digite o nome do filme" required>
         </div>
         <div class="form-group">
             <label for="descricao">Descrição:</label>
@@ -27,8 +27,8 @@
             <input type="text" class="form-control" id="diretor" name="diretor" placeholder="Digite o(s) nome(s) do(s) diretor(es) do filme" required>
         </div>
         <div class="form-group">
-            <label for="cartaz">Cartaz do Filme:</label>
-            <input type="file" class="form-control" id="cartaz" name="cartaz" accept="image/*" required>
+            <label for="imagem">Cartaz do Filme:</label>
+            <input type="file" class="form-control" id="imagem" name="imagem" accept="image/*" required>
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-submit mt-2 py-2 px-5">Salvar</button>
