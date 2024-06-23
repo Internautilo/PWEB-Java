@@ -1,6 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="lista-de-filmes">Lista de Filmes</a>
+                    <a class="nav-link" href="crudadm.jsp">Lista de Filmes</a>
                 </li>
                 <li class="nav-item" id="login-nav">
                     <a class="nav-link" href="login.jsp">Login</a>
@@ -40,13 +38,11 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="usermanagement.jsp">Gerenciar Conta</a>
+                        <% if (isAdmin) { %>
+                        <a class="dropdown-item" href="crudadm.jsp">Gerenciar Filmes</a>
+                        <% };%>
                         <a class="dropdown-item" href="user/logout">Sair</a>
                     </div>
-                    <% if (isAdmin) { %>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="crudadm.jsp">Gerenciar filmes</a>
-                    </div>
-                    <% };%>
                 </li>
             </ul>
         </div>
@@ -58,9 +54,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         // Simulando estado de login do usuário
-        var isLoggedIn = <%= session.getAttribute("user") %>; // Altere para true se o usuário estiver logado
-        console.log(isLoggedIn);
-        // Mostrar ou ocultar botões de login/cadastro e usuário com base no estado de login
+        var isLoggedIn = "<%= session.getAttribute("user") %>"; // Altere para true se o usuário estiver logado
         if (isLoggedIn !== "null") {
             document.getElementById('login-nav').style.display = 'none';
             document.getElementById('register-nav').style.display = 'none';
@@ -71,5 +65,3 @@
             document.getElementById('user-nav').style.display = 'none';
         }
     </script>
-
-</html>
