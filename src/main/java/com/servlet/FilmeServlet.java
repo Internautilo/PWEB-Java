@@ -17,7 +17,7 @@ import java.sql.SQLException;
 @WebServlet(urlPatterns = {"/filme/insert", "/filme/update", "/filme/delete", "/filme", "/avaliar"})
 @MultipartConfig(fileSizeThreshold = 1024*1024*50, maxFileSize = 1024*1024*50, maxRequestSize = 1024*1024*100)
 public class FilmeServlet extends HttpServlet {
-    private static final String UPLOAD_DIR = "src" + File.separator + "main" +  File.separator + "webapp" + File.separator + "WEB-INF" + File.separator + "upload";
+    private static final String UPLOAD_DIR = "upload";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getServletPath();
@@ -57,19 +57,15 @@ public class FilmeServlet extends HttpServlet {
         Part filePart = request.getPart("imagem");
         String fileName = filePart.getSubmittedFileName();
         String caminho = request.getServletContext().getRealPath("");
-        int targetIndex = caminho.indexOf("target");
-        String mainPath = caminho.substring(0, targetIndex);
-        String currentPath = mainPath + UPLOAD_DIR;
-        File uploadDir = new File(currentPath);
+        String uploadPath = caminho + UPLOAD_DIR;
+        File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
             uploadDir.mkdirs();
         }
-        for (Part part : request.getParts()) {
-            part.write(currentPath + File.separator + fileName);
-        }
-
+        filePart.write(uploadPath + File.separator + fileName);
         Filme filme = new Filme(titulo, descricao, diretor, genero, fileName);
         FilmeDAO.insert_filme(filme);
+        response.sendRedirect(request.getContextPath()+ File.separator + "add_movie.jsp?sucess=true");
     }
 
     private void update_filme(HttpServletRequest request, HttpServletResponse response) {
