@@ -33,7 +33,7 @@
                             <% if (usuario != null) { %>
                             <form method="post" action="avaliar" class="rating-form">
                                 <input type="hidden" value="<%=filme.id%>" name="idFilme">
-                                <input type="hidden" value="2" name="idUsuario">
+                                <input type="hidden" value="<%=usuario.id%>" name="idUsuario">
                                 <input type="number" min="0" max="10" step="0.5" placeholder="Nota" name="nota">
                                 <button type="submit">Avaliar Filme</button>
                             </form>
