@@ -55,12 +55,13 @@ public class FilmeDAO {
     }
 
     public static int update_filme(int id, Filme filme) {
-        String campos = "titulo = '" + filme.titulo + "' " +
-                        "descricao = '" + filme.descricao + "' " +
-                        "diretor = '" + filme.diretor + "' " +
+        boolean semImagem = (filme.imagem == null);
+        String campoImagem = (semImagem) ? ",imagem = " + filme.imagem : "";
+        String campos = "titulo = '" + filme.titulo + "', " +
+                        "descricao = '" + filme.descricao + "', " +
+                        "diretor = '" + filme.diretor + "', " +
                         "genero = '" + filme.genero + "' " +
-                        "imagem = '" + filme.imagem + "' " +
-                        "nota = '" + filme.nota + "'";
+                        campoImagem;
         String where = "WHERE idFilme = " + id;
         return DBQuery.update_query("filmes", campos, where);
     }

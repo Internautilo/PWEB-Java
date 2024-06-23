@@ -68,15 +68,21 @@ public class FilmeServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath()+ File.separator + "add_movie.jsp?sucess=true");
     }
 
-    private void update_filme(HttpServletRequest request, HttpServletResponse response) {
+    private void update_filme(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String titulo = request.getParameter("titulo");
         String descricao = request.getParameter("descricao");
         String diretor = request.getParameter("diretor");
         String genero = request.getParameter("genero");
-        String imagem = request.getParameter("imagem");
-        double nota = Double.parseDouble(request.getParameter("nota"));
-        Filme filme = new Filme(id, titulo, descricao, diretor, genero, imagem, nota);
+        Part filePart = request.getPart("imagem");
+        String imagem = "";
+        Filme filme = null;
+        if (filePart != null) {
+            imagem = filePart.getSubmittedFileName();
+            filme = new Filme(titulo, descricao, diretor, genero, imagem);
+        } else {
+            filme = new Filme(titulo, descricao, diretor, genero);
+        }
 
         FilmeDAO.update_filme(id, filme);
     }
