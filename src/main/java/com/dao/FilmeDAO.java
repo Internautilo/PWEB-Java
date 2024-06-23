@@ -16,8 +16,8 @@ public class FilmeDAO {
     }
 
     public static int insert_filme(Filme filme) {
-        String[] valores = {filme.titulo, filme.diretor, filme.genero};
-        return DBQuery.insert_query("filmes", "titulo, diretor, genero", valores);
+        String[] valores = {filme.titulo, filme.descricao, filme.diretor, filme.genero, filme.imagem};
+        return DBQuery.insert_query("filmes", "titulo, descricao, diretor, genero, imagem", valores);
     }
 
     public static Filme get_filme_by_id(int id) throws SQLException {
