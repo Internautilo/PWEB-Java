@@ -10,7 +10,11 @@
     <link href="bootstrap_5.3/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-
+<%  Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+    if (isAdmin == null) {
+        isAdmin = false;
+    }
+%>
     <!-- Navbar sem estar logado -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <a class="navbar-brand" href="index.jsp">
@@ -38,6 +42,11 @@
                         <a class="dropdown-item" href="usermanagement.jsp">Gerenciar Conta</a>
                         <a class="dropdown-item" href="user/logout">Sair</a>
                     </div>
+                    <% if (isAdmin) { %>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="crudadm.jsp">Gerenciar filmes</a>
+                    </div>
+                    <% };%>
                 </li>
             </ul>
         </div>
