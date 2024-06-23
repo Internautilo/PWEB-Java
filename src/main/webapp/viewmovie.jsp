@@ -1,8 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.model.Filme" %>
+<%@ page import="com.model.Usuario" %>
 <% Filme filme = (Filme) request.getAttribute("filme");
     if (filme == null) {
         filme = new Filme(0, "titulo", "descricao", "diretor", "genero", "imagem", 4);
+    }
+    Usuario usuario = (Usuario) request.getAttribute("user");
+    if (usuario == null) {
+        usuario = new Usuario(0, "nome", "email", "senha");
     }
 %>
 <!DOCTYPE html>
@@ -30,7 +35,9 @@
                             <h3>Avalie este filme</h3>
                             <p class="login-warning">Você precisa estar logado para avaliar.</p>
                             <form method="post" action="avaliar" class="rating-form">
-                                <input type="number" min="0" max="10" step="0.1" placeholder="Nota" name="nota">
+                                <input type="hidden" value="<%=filme.id%>" name="idFilme">
+                                <input type="hidden" value="2" name="idUsuario">
+                                <input type="number" min="0" max="10" step="0.5" placeholder="Nota" name="nota">
                                 <button type="submit">Avaliar Filme</button>
                             </form>
                         </div>
