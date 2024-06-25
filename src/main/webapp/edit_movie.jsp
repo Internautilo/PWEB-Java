@@ -16,6 +16,10 @@
             int id = Integer.parseInt(idParam);
             filme = FilmeDAO.get_filme_by_id(id);
     };
+
+    if (!isAdmin) {
+        response.sendRedirect("index.jsp");
+    }
 %>
 <body>
 <div class="user-management-container rounded rounded-4">

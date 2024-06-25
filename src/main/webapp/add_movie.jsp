@@ -5,6 +5,10 @@
     <title>Adicionar Filme</title>
 </head>
 <%@ include file="navbar.jsp" %>
+<% if (!isAdmin) {
+    response.sendRedirect("index.jsp");
+}
+%>
 <body>
 <div class="user-management-container rounded rounded-4">
     <h1 class="text-center mb-4">Adicionar Filme</h1>

@@ -11,7 +11,11 @@
 <body>
 <div class="user-management-container mt-5 rounded rounded-4">
     <div class="row justify-content-center align-items-center column-gap-2 row-gap-2">
-        <% List<Filme> listaDeFilmes = FilmeDAO.listar();
+        <%
+            if (!isAdmin) {
+                response.sendRedirect("index.jsp");
+            }
+            List<Filme> listaDeFilmes = FilmeDAO.listar();
             for (Filme filme : listaDeFilmes) {
         %>
         <div class="card col-md-5">

@@ -98,7 +98,7 @@ public class UserServlet extends HttpServlet {
         String name = req.getParameter("nome");
         String email = req.getParameter("email");
         String senha = req.getParameter("senha");
-        Usuario user = new Usuario(name, email, senha);
+        Usuario user = new Usuario(id, name, email, senha);
         int result = UsuarioDAO.update_user(id, user);
         if (result > 0) {
             HttpSession session = req.getSession();
