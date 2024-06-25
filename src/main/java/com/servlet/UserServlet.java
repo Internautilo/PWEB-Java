@@ -110,6 +110,7 @@ public class UserServlet extends HttpServlet {
     private void delete_user(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         int id = Integer.parseInt(req.getParameter("id"));
         int result = UsuarioDAO.delete_user(id);
+        resp.sendRedirect(req.getContextPath() +"/index.jsp");
     }
 
     private void login(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -130,7 +131,7 @@ public class UserServlet extends HttpServlet {
                 req.getSession().invalidate();
             }
         } else {
-            resp.sendRedirect("/login?error=true");
+            resp.sendRedirect(req.getContextPath() +"/index.jsp");
         }
     }
 

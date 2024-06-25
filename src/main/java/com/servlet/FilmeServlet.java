@@ -85,11 +85,13 @@ public class FilmeServlet extends HttpServlet {
         }
 
         FilmeDAO.update_filme(id, filme);
+        response.sendRedirect(request.getContextPath()+ File.separator + "edit_movie.jsp?sucess=true");
     }
 
-    private void delete_filme(HttpServletRequest request, HttpServletResponse response) {
+    private void delete_filme(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         FilmeDAO.delete_filme(id);
+        response.sendRedirect(request.getContextPath()+ File.separator + "edit_movie.jsp?sucess=true");
     }
 
     private void list_movie(HttpServletRequest request, HttpServletResponse response) {
@@ -114,6 +116,7 @@ public class FilmeServlet extends HttpServlet {
                 response.sendRedirect(request.getHeader("referer"));
             } else {
                 NotaDAO.insert_rating(idFilme, idUsuario, nota);
+                response.sendRedirect(request.getHeader("referer"));
             }
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
