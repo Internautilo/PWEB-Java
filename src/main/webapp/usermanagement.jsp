@@ -7,9 +7,15 @@
 </head>
 <%@ include file="navbar.jsp" %>
 <body>
-<% Usuario usuario = (Usuario) session.getAttribute("user");
+<%
+    Usuario usuario;
+    if (session.getAttribute("user") == null) {
+        usuario = null;
+    } else {
+        usuario = (Usuario) session.getAttribute("user");
+    }
     if (usuario == null) {
-        usuario = new Usuario(1, "nome", "email", "senha");
+        response.sendRedirect("index.jsp");
     }
 %>
     <!-- Gerenciamento de Usuário -->
