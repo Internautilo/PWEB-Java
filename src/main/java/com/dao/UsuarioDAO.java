@@ -67,7 +67,8 @@ public class UsuarioDAO {
     }
 
     public static int update_user(int id, Usuario usuario) throws Exception {
-        String campos = "nome = '" + usuario.nome+ "', email = '" + usuario.email + "', senha = '" + usuario.senha + "'";
+        String senhaHash = Hash.hash_string(usuario.senha);
+        String campos = "nome = '" + usuario.nome+ "', email = '" + usuario.email + "', senha = '" + senhaHash + "'";
         String where = "WHERE idUsuario = " + id;
         return DBQuery.update_query("users", campos, where);
     }

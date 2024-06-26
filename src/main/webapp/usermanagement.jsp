@@ -50,6 +50,7 @@
             </div>
         </form>
         <form action="user/delete" method="post" class="mt-4">
+            <input type="hidden" value="<%=usuario.id%>" name="id">
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-danger btn-delete">Excluir Conta</button>
             </div>

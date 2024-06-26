@@ -25,6 +25,9 @@ public class FilmeServlet extends HttpServlet {
             case "/filme":
                 list_movie(request, response);
                 break;
+            case "/filme/update":
+                update_filme(request, response);
+                break;
         }
     }
 
@@ -85,13 +88,13 @@ public class FilmeServlet extends HttpServlet {
         }
 
         FilmeDAO.update_filme(id, filme);
-        response.sendRedirect(request.getContextPath()+ File.separator + "edit_movie.jsp?sucess=true");
+        response.sendRedirect(request.getContextPath() + "/edit_movie.jsp?id=" + id);
     }
 
     private void delete_filme(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         FilmeDAO.delete_filme(id);
-        response.sendRedirect(request.getContextPath()+ File.separator + "edit_movie.jsp?sucess=true");
+        response.sendRedirect(request.getContextPath()+ "/crudadm.jsp");
     }
 
     private void list_movie(HttpServletRequest request, HttpServletResponse response) {
